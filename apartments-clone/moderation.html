@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Content & Review Moderation - Admin Hub">
+    <title>Moderation Hub | Admin Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- Top Navigation Bar (Dashboard specific) -->
+    <header class="site-header dashboard-header">
+        <div class="header-container">
+            <div class="logo-section" style="display: flex; align-items: center; gap: 15px;">
+                <button class="btn-icon menu-toggle-btn" style="color: var(--text-dark); font-size: 20px;"><i class="fa-solid fa-bars"></i></button>
+                <a href="index.html" class="logo-link" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+                    <div class="logo-icon"><i class="fa-solid fa-house-chimney"></i></div>
+                    <span style="font-size: 20px;">Makikibahay</span>
+                </a>
+            </div>
+            
+            <div class="dashboard-user-nav">
+                <button class="btn-icon"><i class="fa-regular fa-bell"></i></button>
+                <button class="btn-icon"><i class="fa-solid fa-gear"></i></button>
+                <div class="user-profile">
+                    <div class="avatar" style="background-color: #6a1b9a;">AD</div>
+                    <span class="user-name">System Admin</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="dashboard-sidebar">
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link"><i class="fa-solid fa-chart-line"></i> Owner Dashboard</a>
+                <a href="rental-manager.html" class="sidebar-link"><i class="fa-solid fa-building-user"></i> Rental Manager</a>
+                <a href="properties-for-rent.html" class="sidebar-link"><i class="fa-solid fa-building"></i> Properties for Rent</a>
+                <a href="screen-applicants.html" class="sidebar-link"><i class="fa-solid fa-users-viewfinder"></i> Screen Applicants</a>
+                <a href="collect-rent-online.html" class="sidebar-link"><i class="fa-solid fa-money-check-dollar"></i> Collect Rent Online</a>
+                <a href="rental-manager-resources.html" class="sidebar-link"><i class="fa-solid fa-book"></i> Rental Manager Resources</a>
+                
+                <div style="margin: 15px 20px 5px; font-size: 12px; font-weight: 700; color: var(--gray-text); text-transform: uppercase;">My Account</div>
+                <a href="saved-searches.html" class="sidebar-link"><i class="fa-solid fa-magnifying-glass-arrow-right"></i> Saved Searches</a>
+                <a href="favorites.html" class="sidebar-link"><i class="fa-regular fa-heart"></i> Favorites</a>
+                <a href="profile.html" class="sidebar-link"><i class="fa-regular fa-circle-user"></i> My Profile</a>
+
+                <div style="margin: 15px 20px 5px; font-size: 12px; font-weight: 700; color: var(--gray-text); text-transform: uppercase;">Admin Tools</div>
+                <a href="analytics.html" class="sidebar-link"><i class="fa-solid fa-chart-pie"></i> Platform Analytics</a>
+                <a href="financial.html" class="sidebar-link"><i class="fa-solid fa-vault"></i> Financial Hub</a>
+                <a href="leasing.html" class="sidebar-link"><i class="fa-solid fa-key"></i> Leasing & Tenants</a>
+                <a href="user-management.html" class="sidebar-link"><i class="fa-solid fa-users-gear"></i> User Management</a>
+                <a href="moderation.html" class="sidebar-link active"><i class="fa-solid fa-shield-cat"></i> Content Moderation <span class="badge warning">12</span></a>
+                <a href="settings.html" class="sidebar-link"><i class="fa-solid fa-sliders"></i> System Settings</a>
+                <a href="#" class="sidebar-link"><i class="fa-solid fa-gavel"></i> Disputes <span class="badge warning">3</span></a>
+                <a href="#" class="sidebar-link"><i class="fa-solid fa-shield-halved"></i> Access Roles</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="add-property.html" class="btn-primary sidebar-btn"><i class="fa-solid fa-plus"></i> Add Property</a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="dashboard-main">
+            <div class="dashboard-header-text">
+                <h1>Content & Review Moderation</h1>
+                <p>Ensure community standards by reviewing flagged properties and user reviews.</p>
+            </div>
+
+            <div class="config-tabs" style="display: flex; gap: 20px; border-bottom: 1px solid var(--gray-border); margin-bottom: 20px;">
+                <button class="tab active" style="font-size: 15px;">Property Listing Moderation</button>
+                <button class="tab" style="font-size: 15px;">Ratings & Review Management</button>
+            </div>
+
+            <!-- Tab 1: Property Moderation -->
+            <div class="moderation-layout config-pane" id="property-mod-view">
+                <!-- Left Column: Moderation Queue -->
+                <section class="moderation-queue">
+                    <div class="queue-toolbar">
+                        <div class="filter-controls">
+                            <select class="form-input" style="padding: 10px;">
+                                <option>Listing Verification Queue</option>
+                                <option>Media Moderation (Photos/Video)</option>
+                                <option>Takedown Requests</option>
+                            </select>
+                            <select class="form-input" style="padding: 10px;">
+                                <option>Sort: Critical Flags</option>
+                                <option>Sort: Oldest First</option>
+                            </select>
+                        </div>
+                        <span class="queue-count text-muted">Awaiting Action: 5</span>
+                    </div>
+
+                    <!-- Moderation Item: Photo -->
+                    <div class="mod-card">
+                        <div class="mod-card-header">
+                            <span class="mod-type type-photo"><i class="fa-regular fa-image"></i> Flagged Media</span>
+                            <span class="mod-time">Reported 5 hours ago</span>
+                        </div>
+                        <div class="mod-card-content flex-row">
+                            <div class="mod-image-preview">
+                                <div class="image-placeholder"><i class="fa-solid fa-camera-retro"></i> Image Redacted</div>
+                            </div>
+                            <div class="mod-details">
+                                <h3 class="mod-target">Watermarked Competitor Photo</h3>
+                                <p class="mod-desc">Automated system flagged this listing photo for containing competitor watermarks.</p>
+                                
+                                <div class="mod-meta">
+                                    <div><strong>Reported By:</strong> Auto-Moderator AI</div>
+                                    <div><strong>Target Property:</strong> Downtown Lofts #4A</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mod-actions">
+                            <button class="btn-outline btn-small"><i class="fa-solid fa-eye"></i> View Image</button>
+                            <div style="margin-left: auto; display: flex; gap: 10px;">
+                                <button class="btn-outline btn-small" style="color: var(--primary-green); border-color: var(--primary-green);"><i class="fa-solid fa-check"></i> False Positive</button>
+                                <button class="btn-primary btn-small" style="background-color: #f44336;"><i class="fa-solid fa-trash"></i> Issue Takedown</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Right Column: Tools & Policies -->
+                <aside class="moderation-resources">
+                    <div class="resource-card">
+                        <h3><i class="fa-solid fa-gavel"></i> Takedown Tools</h3>
+                        <p>Quick actions for severe violations.</p>
+                        <button class="btn-outline btn-block" style="margin-top:10px;"><i class="fa-solid fa-ban"></i> Suspend Owner Account</button>
+                        <button class="btn-outline btn-block" style="margin-top:10px;"><i class="fa-solid fa-eye-slash"></i> Hide All Listings</button>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Tab 2: Ratings & Reviews -->
+            <div class="moderation-layout config-pane" id="reviews-mod-view" style="display:none;">
+                <section class="moderation-queue" style="width: 100%;">
+                    <div class="queue-toolbar">
+                        <div class="filter-controls">
+                            <select class="form-input" style="padding: 10px;">
+                                <option>Content Review Queue</option>
+                                <option>Disputed Ratings</option>
+                                <option>Audit Logs</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Review Moderation Item -->
+                    <div class="mod-card">
+                        <div class="mod-card-header">
+                            <span class="mod-type type-review"><i class="fa-regular fa-comment-dots"></i> Flagged Review</span>
+                            <span class="mod-time">Reported 2 hours ago</span>
+                        </div>
+                        <div class="mod-card-content">
+                            <h3 class="mod-target">"Terrible management, do not rent here!"</h3>
+                            <p class="mod-desc">User explicitly named individual leasing agents which violates our PII policy.</p>
+                            
+                            <div class="mod-meta">
+                                <div><strong>Reported By:</strong> 3 Users</div>
+                                <div><strong>Target Property:</strong> The Grand View Apartments</div>
+                                <div><strong>Author:</strong> @AngryTenant99</div>
+                            </div>
+                        </div>
+                        <div class="mod-actions">
+                            <div style="margin-left: auto; display: flex; gap: 10px;">
+                                <button class="btn-outline btn-small" style="color: var(--primary-green); border-color: var(--primary-green);"><i class="fa-solid fa-check"></i> Approve (Ignore Report)</button>
+                                <button class="btn-primary btn-small" style="background-color: #f44336;"><i class="fa-solid fa-ban"></i> Remove Content</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </main>
+    </div>
+
+        <!-- Global Slide-out Menu -->
+    <div class="global-menu-overlay" id="globalMenuOverlay"></div>
+    <div class="global-side-menu" id="globalSideMenu">
+        <div class="menu-header">
+            <span style="font-size: 18px; font-weight: 700;">Site Directory</span>
+            <button class="btn-icon close-menu-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="menu-content">
+            <div class="menu-section-title">Public Pages</div>
+            <a href="index.html" class="menu-item"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="search-results.html" class="menu-item"><i class="fa-solid fa-magnifying-glass"></i> Search Results</a>
+            <a href="pdp.html" class="menu-item"><i class="fa-solid fa-building"></i> Property Detail (PDP)</a>
+            
+            <div class="menu-section-title">My Account</div>
+            <a href="saved-searches.html" class="menu-item"><i class="fa-solid fa-magnifying-glass-arrow-right"></i> Saved Searches</a>
+            <a href="favorites.html" class="menu-item"><i class="fa-regular fa-heart"></i> Favorites</a>
+            <a href="profile.html" class="menu-item"><i class="fa-regular fa-circle-user"></i> My Profile</a>
+
+            <div class="menu-section-title">Renter Tools</div>
+            <a href="#" class="menu-item"><i class="fa-solid fa-inbox"></i> Inbox</a>
+            <a href="rental-manager.html" class="menu-item"><i class="fa-solid fa-building-user"></i> Manage Rentals</a>
+            <a href="#" class="menu-item"><i class="fa-solid fa-language"></i> Language Selector</a>
+            <a href="#" class="menu-item"><i class="fa-regular fa-circle-question"></i> Help Center</a>
+
+            <div class="menu-section-title">Property Managers</div>
+            <a href="add-property.html" class="menu-item"><i class="fa-solid fa-plus"></i> Add Property</a>
+            
+            <div class="menu-section-title">Admin & Dashboards</div>
+            <a href="dashboard.html" class="menu-item"><i class="fa-solid fa-chart-line"></i> Owner Dashboard</a>
+            <a href="analytics.html" class="menu-item"><i class="fa-solid fa-chart-pie"></i> Platform Analytics</a>
+            <a href="financial.html" class="menu-item"><i class="fa-solid fa-vault"></i> Financial Hub</a>
+            <a href="leasing.html" class="menu-item"><i class="fa-solid fa-key"></i> Leasing & Tenants</a>
+            <a href="user-management.html" class="menu-item"><i class="fa-solid fa-users-gear"></i> User Management</a>
+            <a href="moderation.html" class="menu-item"><i class="fa-solid fa-shield-cat"></i> Content Moderation</a>
+            <a href="settings.html" class="menu-item"><i class="fa-solid fa-sliders"></i> System Settings</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+

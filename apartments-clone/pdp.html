@@ -1,0 +1,424 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Property Details - Makikibahay Clone">
+    <title>The Grand View Apartments - Property Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="pdp-body">
+    <!-- Global Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-section" style="display: flex; align-items: center; gap: 15px;">
+                <button class="btn-icon menu-toggle-btn" style="color: var(--text-dark); font-size: 20px;"><i class="fa-solid fa-bars"></i></button>
+                <a href="index.html" class="logo-link" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+                    <div class="logo-icon"><i class="fa-solid fa-house-chimney"></i></div>
+                    <span>Makikibahay</span>
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="search-results.html">Browse</a>
+                <a href="#">Saved Searches</a>
+                <a href="#">Favorites</a>
+                <a href="#">Profile</a>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn btn-outline" onclick="window.location.href='dashboard.html'">Login / Sign Up</button>
+                <a href="add-property.html" class="btn btn-primary" style="background-color: transparent; color: var(--text-dark); border-color: var(--gray-border);">Add a Property</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pdp-layout">
+        <div class="pdp-container">
+            <!-- Breadcrumbs -->
+            <nav class="breadcrumbs">
+                <a href="index.html">Home</a> &gt; 
+                <a href="search-results.html">Cityville Apartments</a> &gt; 
+                <span>The Grand View Apartments</span>
+            </nav>
+
+            <!-- Gallery Header with Tags and Actions -->
+            <section class="pdp-gallery-container" style="position: relative;">
+                <div class="pdp-gallery-actions" style="position: absolute; top: 15px; right: 20px; z-index: 10; display: flex; gap: 10px;">
+                    <button class="btn-icon" style="background: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm);"><i class="fa-solid fa-share-nodes"></i></button>
+                    <button class="btn-icon btn-favorite" style="background: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm); color: var(--text-dark);"><i class="fa-regular fa-heart"></i></button>
+                </div>
+                
+                <div class="pdp-media-tags" style="position: absolute; bottom: 20px; left: 20px; z-index: 10; display: flex; gap: 10px;">
+                    <span class="media-tag" style="background: rgba(0,0,0,0.7); color: white; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 500; display: flex; align-items: center; gap: 6px; cursor: pointer;"><i class="fa-solid fa-camera"></i> 24 Photos</span>
+                    <span class="media-tag" style="background: rgba(0,0,0,0.7); color: white; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 500; display: flex; align-items: center; gap: 6px; cursor: pointer;"><i class="fa-solid fa-vr-cardboard"></i> 3D Tour</span>
+                    <span class="media-tag" style="background: rgba(0,0,0,0.7); color: white; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 500; display: flex; align-items: center; gap: 6px; cursor: pointer;"><i class="fa-solid fa-video"></i> Video</span>
+                </div>
+
+                <section class="pdp-gallery">
+                    <div class="gallery-main">
+                        <img src="images/apt4.png" alt="Building Exterior">
+                    </div>
+                    <div class="gallery-side">
+                        <img src="images/apt1.png" alt="Interior View">
+                        <img src="images/apt2.png" alt="Kitchen View">
+                    </div>
+                </section>
+            </section>
+
+            <!-- Sticky Page Navigation -->
+            <nav class="pdp-page-nav sticky-nav">
+                <div class="nav-container">
+                    <a href="#pricing" class="page-nav-link active">Pricing</a>
+                    <a href="#about" class="page-nav-link">About</a>
+                    <a href="#amenities" class="page-nav-link">Amenities</a>
+                    <a href="#policies" class="page-nav-link">Fees & Policies</a>
+                    <a href="#location" class="page-nav-link">Location</a>
+                    <a href="#reviews" class="page-nav-link">Reviews</a>
+                </div>
+            </nav>
+
+            <!-- Content Area Split -->
+            <div class="pdp-content-split">
+                <!-- Left Column -->
+                <div class="pdp-main-col">
+                    <div class="pdp-header-info">
+                        <div class="pdp-title-bar">
+                            <h1>The Grand View Apartments</h1>
+                            <div class="pdp-rating">
+                                <i class="fa-solid fa-star" style="color:#ffb400;"></i>
+                                <i class="fa-solid fa-star" style="color:#ffb400;"></i>
+                                <i class="fa-solid fa-star" style="color:#ffb400;"></i>
+                                <i class="fa-solid fa-star" style="color:#ffb400;"></i>
+                                <i class="fa-solid fa-star-half-stroke" style="color:#ffb400;"></i>
+                                <span class="rating-text">4.5 (128 Reviews)</span>
+                            </div>
+                        </div>
+                        <p class="pdp-address">200 Main St, Cityville, ST 54321</p>
+                        
+                        <div class="pdp-quick-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Monthly Rent</span>
+                                <span class="stat-value">$1,900 - $3,500</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Bedrooms</span>
+                                <span class="stat-value">1 - 3 Beds</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Bathrooms</span>
+                                <span class="stat-value">1 - 2 Baths</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Square Feet</span>
+                                <span class="stat-value">750 - 1,400 sq ft</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="pricing" class="pdp-section pdp-section-anchor floor-plans-section">
+                        <h2>Pricing & Floor Plans</h2>
+                        <div class="floor-plan-card">
+                            <div class="fp-info">
+                                <h3>1 Bedroom Standard</h3>
+                                <p>1 Bed &bull; 1 Bath &bull; 750 sq ft</p>
+                                <p class="fp-price">$1,900/mo</p>
+                            </div>
+                            <div class="fp-actions">
+                                <span class="fp-availability">Available Now</span>
+                                <button class="btn-outline btn-small">Apply Now</button>
+                            </div>
+                        </div>
+                        <div class="floor-plan-card">
+                            <div class="fp-info">
+                                <h3>2 Bedroom Corner</h3>
+                                <p>2 Beds &bull; 2 Baths &bull; 1,100 sq ft</p>
+                                <p class="fp-price">$2,650/mo</p>
+                            </div>
+                            <div class="fp-actions">
+                                <span class="fp-availability warning" style="color:#ff385c; font-weight:500;">Waitlist</span>
+                                <button class="btn-outline btn-small">Join Waitlist</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="about" class="pdp-section pdp-section-anchor about-section">
+                        <h2>About The Grand View Apartments</h2>
+                        <p>Welcome to The Grand View Apartments, where modern city living meets exceptional comfort. Located in the heart of Cityville, our community is designed for individuals who thrive on energy and convenience. Just steps away from top schools, tech workplaces, and a vibrant local food scene, you'll find everything you need right outside your door.</p>
+                        <p>Our units feature premium finishes, including spacious kitchens with stainless steel appliances, and large windows that flood your home with natural light.</p>
+                        
+                        <h3 style="margin-top: 25px; font-size: 18px;">Property Highlights</h3>
+                        <div class="highlights-grid">
+                            <div class="highlight-item"><i class="fa-solid fa-bolt"></i> High-Speed Internet</div>
+                            <div class="highlight-item"><i class="fa-solid fa-tree-city"></i> City Views</div>
+                            <div class="highlight-item"><i class="fa-regular fa-calendar-check"></i> Flexible Lease Terms</div>
+                            <div class="highlight-item"><i class="fa-solid fa-shield-halved"></i> Controlled Access</div>
+                            <div class="highlight-item"><i class="fa-solid fa-elevator"></i> Elevator</div>
+                            <div class="highlight-item"><i class="fa-solid fa-truck-ramp-box"></i> Package Service</div>
+                        </div>
+                    </div>
+
+                    <div id="amenities" class="pdp-section pdp-section-anchor amenities-section">
+                        <h2>Property Amenities</h2>
+                        <div class="amenity-grid">
+                            <div class="amenity-card">
+                                <h4><i class="fa-solid fa-house"></i> Unit Features</h4>
+                                <ul>
+                                    <li>In-Unit Washer & Dryer</li>
+                                    <li>Central Air Conditioning</li>
+                                    <li>Stainless Steel Appliances</li>
+                                    <li>Hardwood Floors</li>
+                                    <li>Balcony/Patio</li>
+                                </ul>
+                            </div>
+                            <div class="amenity-card">
+                                <h4><i class="fa-solid fa-building"></i> Community Amenities</h4>
+                                <ul>
+                                    <li>Resort-Style Pool</li>
+                                    <li>24/7 Fitness Center</li>
+                                    <li>Rooftop Deck & Grills</li>
+                                    <li>Coworking Lounge</li>
+                                    <li>Package Concierge</li>
+                                </ul>
+                            </div>
+                            <div class="amenity-card">
+                                <h4><i class="fa-solid fa-map-location-dot"></i> Neighborhood (Near)</h4>
+                                <ul>
+                                    <li>Cityville University</li>
+                                    <li>Downtown Eateries & Cafes</li>
+                                    <li>Hospitals & Clinics</li>
+                                    <li>Tech Hub Workplace</li>
+                                    <li>Public Transit Stops</li>
+                                </ul>
+                            </div>
+                            <div class="amenity-card">
+                                <h4><i class="fa-solid fa-paw"></i> Pet Policy</h4>
+                                <ul>
+                                    <li>Dogs & Cats Allowed</li>
+                                    <li>2 Pet Limit</li>
+                                    <li>$50/mo Pet Rent</li>
+                                    <li>On-Site Dog Park</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="policies" class="pdp-section pdp-section-anchor policies-section">
+                        <h2>Fees and Policies</h2>
+                        <div class="policy-card">
+                            <h3>Required Fees</h3>
+                            <div class="policy-row"><span class="policy-label">Application Fee</span><span class="policy-value">$50 per applicant</span></div>
+                            <div class="policy-row"><span class="policy-label">Admin Fee</span><span class="policy-value">$150 one-time</span></div>
+                            <div class="policy-row"><span class="policy-label">Security Deposit</span><span class="policy-value">1 Month's Rent (with approved credit)</span></div>
+                        </div>
+                        <div class="policy-card">
+                            <h3>Pet Policies</h3>
+                            <div class="policy-row"><span class="policy-label">Pet Limit</span><span class="policy-value">2 pets maximum</span></div>
+                            <div class="policy-row"><span class="policy-label">Pet Deposit</span><span class="policy-value">$300 per pet</span></div>
+                            <div class="policy-row"><span class="policy-label">Monthly Pet Rent</span><span class="policy-value">$50 per pet</span></div>
+                            <p class="text-sm text-muted" style="margin-top:10px;">* Breed restrictions apply. Contact leasing office for details.</p>
+                        </div>
+                    </div>
+
+                    <div id="location" class="pdp-section pdp-section-anchor location-section">
+                        <h2>Neighborhood & Location</h2>
+                        <img src="images/map.png" alt="Map View" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
+                        
+                        <div class="local-info-grid">
+                            <div>
+                                <h3><i class="fa-solid fa-graduation-cap"></i> Schools & Universities</h3>
+                                <ul class="info-list">
+                                    <li><span class="info-name">Cityville Elementary <span style="font-size:11px; background:#e0e0e0; padding:2px 5px; border-radius:3px;">Public</span></span><span class="info-distance">0.4 mi</span></li>
+                                    <li><span class="info-name">Metro High School <span style="font-size:11px; background:#e0e0e0; padding:2px 5px; border-radius:3px;">Public</span></span><span class="info-distance">1.2 mi</span></li>
+                                    <li><span class="info-name">State University</span><span class="info-distance">2.5 mi</span></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3><i class="fa-solid fa-bus"></i> Transportation</h3>
+                                <ul class="info-list">
+                                    <li><span class="info-name">Main St Bus Stop (Route 12)</span><span class="info-distance">0.1 mi</span></li>
+                                    <li><span class="info-name">Downtown Metro Station</span><span class="info-distance">0.8 mi</span></li>
+                                    <li><span class="info-name">International Airport</span><span class="info-distance">12.4 mi</span></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3><i class="fa-solid fa-store"></i> Points of Interest</h3>
+                                <ul class="info-list">
+                                    <li><span class="info-name">Valley Shopping Mall</span><span class="info-distance">1.5 mi</span></li>
+                                    <li><span class="info-name">Centennial Park</span><span class="info-distance">0.5 mi</span></li>
+                                    <li><span class="info-name">City General Hospital</span><span class="info-distance">3.1 mi</span></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3><i class="fa-solid fa-chart-bar"></i> Avg Prices in Area</h3>
+                                <ul class="info-list">
+                                    <li><span class="info-name">Studio</span><span class="info-distance" style="font-weight:700; color:var(--text-dark)">$1,450 / mo</span></li>
+                                    <li><span class="info-name">1 Bedroom</span><span class="info-distance" style="font-weight:700; color:var(--text-dark)">$1,800 / mo</span></li>
+                                    <li><span class="info-name">2 Bedrooms</span><span class="info-distance" style="font-weight:700; color:var(--text-dark)">$2,400 / mo</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="reviews" class="pdp-section pdp-section-anchor reviews-section">
+                        <h2>Ratings & Reviews</h2>
+                        <div class="review-scorecard">
+                            <div class="scorecard-big">
+                                <span class="score-number">4.5</span>
+                                <div class="score-stars">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                                </div>
+                                <span class="score-count">From 128 Reviews</span>
+                            </div>
+                            <div class="score-bars">
+                                <div class="score-bar-row">5 <i class="fa-solid fa-star" style="color:#ffb400; font-size:10px;"></i><div class="score-bar-track"><div class="score-bar-fill" style="width: 70%;"></div></div> 65%</div>
+                                <div class="score-bar-row">4 <i class="fa-solid fa-star" style="color:#ffb400; font-size:10px;"></i><div class="score-bar-track"><div class="score-bar-fill" style="width: 20%;"></div></div> 20%</div>
+                                <div class="score-bar-row">3 <i class="fa-solid fa-star" style="color:#ffb400; font-size:10px;"></i><div class="score-bar-track"><div class="score-bar-fill" style="width: 8%;"></div></div> 8%</div>
+                                <div class="score-bar-row">2 <i class="fa-solid fa-star" style="color:#ffb400; font-size:10px;"></i><div class="score-bar-track"><div class="score-bar-fill" style="width: 5%;"></div></div> 5%</div>
+                                <div class="score-bar-row">1 <i class="fa-solid fa-star" style="color:#ffb400; font-size:10px;"></i><div class="score-bar-track"><div class="score-bar-fill" style="width: 2%;"></div></div> 2%</div>
+                            </div>
+                        </div>
+
+                        <div class="review-list">
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <span class="reviewer-name">Sarah M. <i class="fa-solid fa-circle-check" style="color:var(--primary-green); font-size:12px;" title="Verified Resident"></i></span>
+                                        <div class="score-stars" style="font-size:12px; margin:2px 0;">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <span class="review-date">Oct 14, 2025</span>
+                                </div>
+                                <p class="review-text">I've lived here for two years and the management is fantastic. The amenities are always clean, especially the rooftop deck. Maintenance requests are handled within 24 hours. Highly recommend!</p>
+                            </div>
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <span class="reviewer-name">David L. <i class="fa-solid fa-circle-check" style="color:var(--primary-green); font-size:12px;" title="Verified Resident"></i></span>
+                                        <div class="score-stars" style="font-size:12px; margin:2px 0;">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <span class="review-date">Aug 02, 2025</span>
+                                </div>
+                                <p class="review-text">Great location near the university. The walls are a bit thin so you can sometimes hear the neighbors, but overall it's a very nice place to live. The in-unit washer and dryer are a lifesaver.</p>
+                            </div>
+                        </div>
+                        <button class="btn-outline" style="width:100%; margin-top:15px;">Read All 128 Reviews</button>
+                    </div>
+
+                </div>
+
+                <!-- Right Column (Sticky Contact Form) -->
+                <div class="pdp-side-col">
+                    <div class="contact-card sticky" style="top: 80px;"> <!-- Offset for sticky nav -->
+                        <div class="contact-header-info">
+                            <h3 style="font-size: 24px;">The Grand View</h3>
+                            <div class="contact-phone"><i class="fa-solid fa-phone" style="font-size:12px; margin-right:4px;"></i> (555) 123-4567</div>
+                            <div class="contact-hours"><i class="fa-regular fa-clock" style="font-size:12px; margin-right:4px;"></i> Open Today: 9:00 AM - 6:00 PM</div>
+                        </div>
+
+                        <div class="contact-actions-grid" style="display: flex; gap: 10px; margin-top: 15px;">
+                            <button class="btn-primary" style="flex: 1; border-radius: 8px; font-weight: 500; padding: 12px; font-size: 14px;"><i class="fa-regular fa-envelope"></i> Message</button>
+                            <button class="btn-outline" style="flex: 1; border-radius: 8px; font-weight: 500; border-color: var(--primary-green); color: var(--primary-green); padding: 12px; font-size: 14px;"><i class="fa-solid fa-car"></i> Request Tour</button>
+                        </div>
+                        
+                        <hr style="border: none; border-top: 1px solid var(--gray-border); margin: 20px 0;">
+
+                        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message Sent!');">
+                            <input type="text" placeholder="First Name" required class="search-input" style="margin-bottom: 15px; width: 100%; padding: 10px 15px; border-radius: 8px;">
+                            <input type="text" placeholder="Last Name" required class="search-input" style="margin-bottom: 15px; width: 100%; padding: 10px 15px; border-radius: 8px;">
+                            <input type="email" placeholder="Email Address" required class="search-input" style="margin-bottom: 15px; width: 100%; padding: 10px 15px; border-radius: 8px;">
+                            <input type="tel" placeholder="Phone Number" class="search-input" style="margin-bottom: 15px; width: 100%; padding: 10px 15px; border-radius: 8px;">
+                            <textarea placeholder="I am interested in learning more..." rows="4" class="search-input" style="margin-bottom: 15px; width: 100%; padding: 10px 15px; border-radius: 8px; resize: vertical;"></textarea>
+                            <label class="checkbox-label" style="display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--gray-text); margin-bottom: 15px; cursor: pointer;">
+                                <input type="checkbox" checked style="margin-top: 3px;"> 
+                                <span>I agree to the Terms & Conditions and Privacy Policy.</span>
+                            </label>
+                            <button type="submit" class="btn-primary" style="width: 100%; border-radius: 8px; padding: 14px; font-size: 16px;">Contact Property</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Legal Notices</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Avoid Scams</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom" style="max-width: 1400px; margin: 40px auto 0; padding-top: 20px; border-top: 1px solid var(--gray-border); text-align: center; color: var(--gray-text); font-size: 14px;">
+            <p>&copy; 2026 CoStar Group, Inc. All Rights Reserved.</p>
+            <p style="margin-top: 10px; font-size: 12px;">Equal Housing Opportunity <i class="fa-solid fa-house" style="margin-left: 5px;"></i></p>
+        </div>
+    </footer>
+
+        <!-- Global Slide-out Menu -->
+    <div class="global-menu-overlay" id="globalMenuOverlay"></div>
+    <div class="global-side-menu" id="globalSideMenu">
+        <div class="menu-header">
+            <span style="font-size: 18px; font-weight: 700;">Site Directory</span>
+            <button class="btn-icon close-menu-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="menu-content">
+            <div class="menu-section-title">Public Pages</div>
+            <a href="index.html" class="menu-item"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="search-results.html" class="menu-item"><i class="fa-solid fa-magnifying-glass"></i> Search Results</a>
+            <a href="pdp.html" class="menu-item"><i class="fa-solid fa-building"></i> Property Detail (PDP)</a>
+            
+            <div class="menu-section-title">My Account</div>
+            <a href="saved-searches.html" class="menu-item"><i class="fa-solid fa-magnifying-glass-arrow-right"></i> Saved Searches</a>
+            <a href="favorites.html" class="menu-item"><i class="fa-regular fa-heart"></i> Favorites</a>
+            <a href="profile.html" class="menu-item"><i class="fa-regular fa-circle-user"></i> My Profile</a>
+
+            <div class="menu-section-title">Renter Tools</div>
+            <a href="#" class="menu-item"><i class="fa-solid fa-inbox"></i> Inbox</a>
+            <a href="rental-manager.html" class="menu-item"><i class="fa-solid fa-building-user"></i> Manage Rentals</a>
+            <a href="#" class="menu-item"><i class="fa-solid fa-language"></i> Language Selector</a>
+            <a href="#" class="menu-item"><i class="fa-regular fa-circle-question"></i> Help Center</a>
+
+            <div class="menu-section-title">Property Managers</div>
+            <a href="add-property.html" class="menu-item"><i class="fa-solid fa-plus"></i> Add Property</a>
+            
+            <div class="menu-section-title">Admin & Dashboards</div>
+            <a href="dashboard.html" class="menu-item"><i class="fa-solid fa-chart-line"></i> Owner Dashboard</a>
+            <a href="analytics.html" class="menu-item"><i class="fa-solid fa-chart-pie"></i> Platform Analytics</a>
+            <a href="financial.html" class="menu-item"><i class="fa-solid fa-vault"></i> Financial Hub</a>
+            <a href="leasing.html" class="menu-item"><i class="fa-solid fa-key"></i> Leasing & Tenants</a>
+            <a href="user-management.html" class="menu-item"><i class="fa-solid fa-users-gear"></i> User Management</a>
+            <a href="moderation.html" class="menu-item"><i class="fa-solid fa-shield-cat"></i> Content Moderation</a>
+            <a href="settings.html" class="menu-item"><i class="fa-solid fa-sliders"></i> System Settings</a>
+        </div>
+    </div>
+
+    <!-- Script inclusion -->
+    <script src="script.js"></script>
+</body>
+</html>
+
+

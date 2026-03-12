@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Favorites - Makikibahay">
+    <title>Favorites | Makikibahay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .fav-toolbar { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:20px; }
+        .fav-sort { display:flex; align-items:center; gap:8px; font-size:14px; color:var(--gray-text); }
+        .fav-sort select { padding:7px 12px; border:1.5px solid var(--gray-border); border-radius:8px; font-size:14px; font-family:inherit; outline:none; background:white; cursor:pointer; transition:border-color 0.2s; }
+        .fav-sort select:focus { border-color:var(--primary-green); }
+        .fav-count { font-size:14px; color:var(--gray-text); font-weight:500; }
+        .fav-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px; margin-top:16px; }
+        .fav-card { background:white; border:1px solid var(--gray-border); border-radius:14px; overflow:hidden; transition:box-shadow 0.2s,transform 0.2s; position:relative; }
+        .fav-card:hover { box-shadow:0 8px 28px rgba(0,0,0,0.1); transform:translateY(-2px); }
+        .fav-img-wrap { position:relative; height:190px; overflow:hidden; background:#ddd; }
+        .fav-img { width:100%; height:100%; object-fit:cover; transition:transform 0.4s; }
+        .fav-card:hover .fav-img { transform:scale(1.05); }
+        .fav-badge { position:absolute; top:12px; left:12px; background:var(--primary-green); color:white; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px; }
+        .fav-badge.new { background:#e67e22; }
+        .fav-badge.hot { background:#e74c3c; }
+        .fav-remove-btn { position:absolute; top:10px; right:10px; width:34px; height:34px; border-radius:50%; background:white; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:16px; color:#e74c3c; box-shadow:0 2px 6px rgba(0,0,0,0.18); transition:all 0.2s; }
+        .fav-remove-btn:hover { transform:scale(1.15); background:#fff0f0; }
+        .fav-body { padding:16px; }
+        .fav-price { font-size:20px; font-weight:700; color:var(--text-dark); }
+        .fav-beds { font-size:13px; color:var(--gray-text); margin-top:2px; }
+        .fav-address { font-size:14px; font-weight:500; color:var(--text-dark); margin:8px 0; }
+        .fav-amenities { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px; }
+        .fav-amenity { background:var(--gray-light); color:var(--gray-text); border-radius:12px; padding:3px 10px; font-size:11px; font-weight:500; }
+        .fav-actions { display:flex; gap:8px; padding-top:12px; border-top:1px solid var(--gray-border); }
+        .fav-btn { flex:1; padding:9px; border-radius:8px; font-size:13px; font-weight:600; font-family:inherit; cursor:pointer; transition:all 0.2s; text-align:center; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:6px; }
+        .fav-btn-primary { background:var(--primary-green); color:white; border:none; }
+        .fav-btn-primary:hover { background:var(--primary-green-hover); }
+        .fav-btn-outline { background:white; color:var(--text-dark); border:1.5px solid var(--gray-border); }
+        .fav-btn-outline:hover { background:var(--gray-light); }
+        .fav-added-date { font-size:11px; color:#aaa; margin-top:8px; display:flex; align-items:center; gap:4px; }
+        .empty-state { text-align:center; padding:80px 20px; color:var(--gray-text); grid-column:1/-1; }
+        .empty-state i { font-size:52px; margin-bottom:20px; color:#ddd; display:block; }
+        .empty-state h3 { font-size:20px; font-weight:700; color:var(--text-dark); margin-bottom:8px; }
+    </style>
+</head>
+<body class="dashboard-body">
+    <header class="site-header dashboard-header">
+        <div class="header-container">
+            <div class="logo-section" style="display:flex;align-items:center;gap:15px;">
+                <button class="btn-icon menu-toggle-btn" style="color:var(--text-dark);font-size:20px;"><i class="fa-solid fa-bars"></i></button>
+                <a href="index.html" class="logo-link" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;">
+                    <div class="logo-icon"><i class="fa-solid fa-house-chimney"></i></div>
+                    <span style="font-size:20px;">Makikibahay</span>
+                </a>
+            </div>
+            <div class="dashboard-user-nav">
+                <button class="btn-icon"><i class="fa-regular fa-bell"></i><span class="notification-badge">2</span></button>
+                <button class="btn-icon"><i class="fa-solid fa-gear"></i></button>
+                <div class="user-profile"><div class="avatar">JD</div><span class="user-name">Juan dela Cruz</span></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-layout">
+        <aside class="dashboard-sidebar">
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link"><i class="fa-solid fa-chart-line"></i> Owner Dashboard</a>
+                <a href="rental-manager.html" class="sidebar-link"><i class="fa-solid fa-building-user"></i> Rental Manager</a>
+                <a href="properties-for-rent.html" class="sidebar-link"><i class="fa-solid fa-building"></i> Properties for Rent</a>
+                <a href="screen-applicants.html" class="sidebar-link"><i class="fa-solid fa-users-viewfinder"></i> Screen Applicants</a>
+                <a href="collect-rent-online.html" class="sidebar-link"><i class="fa-solid fa-money-check-dollar"></i> Collect Rent Online</a>
+                <a href="rental-manager-resources.html" class="sidebar-link"><i class="fa-solid fa-book"></i> Rental Manager Resources</a>
+                <div style="margin:15px 20px 5px;font-size:12px;font-weight:700;color:var(--gray-text);text-transform:uppercase;">My Account</div>
+                <a href="saved-searches.html" class="sidebar-link"><i class="fa-solid fa-magnifying-glass-arrow-right"></i> Saved Searches</a>
+                <a href="favorites.html" class="sidebar-link active"><i class="fa-solid fa-heart"></i> Favorites</a>
+                <a href="profile.html" class="sidebar-link"><i class="fa-regular fa-circle-user"></i> My Profile</a>
+                <div style="margin:15px 20px 5px;font-size:12px;font-weight:700;color:var(--gray-text);text-transform:uppercase;">Admin Tools</div>
+                <a href="analytics.html" class="sidebar-link"><i class="fa-solid fa-chart-pie"></i> Platform Analytics</a>
+                <a href="financial.html" class="sidebar-link"><i class="fa-solid fa-vault"></i> Financial Hub</a>
+                <a href="leasing.html" class="sidebar-link"><i class="fa-solid fa-key"></i> Leasing & Tenants</a>
+                <a href="user-management.html" class="sidebar-link"><i class="fa-solid fa-users-gear"></i> User Management</a>
+                <a href="moderation.html" class="sidebar-link"><i class="fa-solid fa-shield-cat"></i> Content Moderation <span class="badge warning">12</span></a>
+                <a href="settings.html" class="sidebar-link"><i class="fa-solid fa-sliders"></i> System Settings</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="add-property.html" class="btn-primary sidebar-btn"><i class="fa-solid fa-plus"></i> Add Property</a>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <div class="dashboard-header-text">
+                <h1>Favorites</h1>
+                <p>Listings you've saved for later. <span id="favCountBadge" style="background:#f0faf4;color:var(--primary-green);font-weight:700;padding:2px 10px;border-radius:20px;font-size:13px;border:1px solid #c3e6ce;">5 saved</span></p>
+            </div>
+
+            <div class="fav-toolbar">
+                <span class="fav-count" id="favCountLabel">Showing 5 listings</span>
+                <div class="fav-sort">
+                    Sort by:
+                    <select onchange="sortFavorites(this.value)">
+                        <option value="newest">Date Added (Newest)</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="fav-grid" id="favGrid">
+
+                <div class="fav-card" data-price="2450" data-added="2024-03-08">
+                    <div class="fav-img-wrap">
+                        <img src="images/apt1.png" alt="Horizon Blvd Apartment" class="fav-img" onerror="this.style.objectFit='contain';this.style.padding='40px';this.style.background='#f4f4f4'">
+                        <span class="fav-badge">Available</span>
+                        <button class="fav-remove-btn" title="Remove from favorites" onclick="removeFav(this)"><i class="fa-solid fa-heart"></i></button>
+                    </div>
+                    <div class="fav-body">
+                        <div class="fav-price">$2,450 / mo</div>
+                        <div class="fav-beds">2 Beds &bull; 1 Bath &bull; 950 sq ft</div>
+                        <div class="fav-address"><i class="fa-solid fa-location-dot" style="color:var(--primary-green);margin-right:4px;"></i>123 Horizon Blvd, Metro City, ST</div>
+                        <div class="fav-amenities"><span class="fav-amenity">Parking</span><span class="fav-amenity">Pet Friendly</span><span class="fav-amenity">A/C</span></div>
+                        <div class="fav-actions">
+                            <a href="pdp.html" class="fav-btn fav-btn-outline"><i class="fa-solid fa-eye"></i> View</a>
+                            <button class="fav-btn fav-btn-primary" onclick="alert('Demo: Opening contact form for 123 Horizon Blvd')"><i class="fa-regular fa-envelope"></i> Contact</button>
+                        </div>
+                        <div class="fav-added-date"><i class="fa-regular fa-clock"></i> Saved Mar 8, 2024</div>
+                    </div>
+                </div>
+
+                <div class="fav-card" data-price="1850" data-added="2024-03-06">
+                    <div class="fav-img-wrap">
+                        <img src="images/apt2.png" alt="Elm Street Lofts" class="fav-img" onerror="this.style.objectFit='contain';this.style.padding='40px';this.style.background='#f4f4f4'">
+                        <span class="fav-badge new">New Listing</span>
+                        <button class="fav-remove-btn" title="Remove from favorites" onclick="removeFav(this)"><i class="fa-solid fa-heart"></i></button>
+                    </div>
+                    <div class="fav-body">
+                        <div class="fav-price">$1,850 / mo</div>
+                        <div class="fav-beds">Studio &bull; 1 Bath &bull; 540 sq ft</div>
+                        <div class="fav-address"><i class="fa-solid fa-location-dot" style="color:var(--primary-green);margin-right:4px;"></i>456 Elm Street Lofts, Uptown, ST</div>
+                        <div class="fav-amenities"><span class="fav-amenity">Gym</span><span class="fav-amenity">Pool</span><span class="fav-amenity">Rooftop</span></div>
+                        <div class="fav-actions">
+                            <a href="pdp.html" class="fav-btn fav-btn-outline"><i class="fa-solid fa-eye"></i> View</a>
+                            <button class="fav-btn fav-btn-primary" onclick="alert('Demo: Opening contact form for 456 Elm Street')"><i class="fa-regular fa-envelope"></i> Contact</button>
+                        </div>
+                        <div class="fav-added-date"><i class="fa-regular fa-clock"></i> Saved Mar 6, 2024</div>
+                    </div>
+                </div>
+
+                <div class="fav-card" data-price="3200" data-added="2024-03-04">
+                    <div class="fav-img-wrap">
+                        <img src="images/apt3.png" alt="Skyline Tower" class="fav-img" onerror="this.style.objectFit='contain';this.style.padding='40px';this.style.background='#f4f4f4'">
+                        <span class="fav-badge hot">Price Drop!</span>
+                        <button class="fav-remove-btn" title="Remove from favorites" onclick="removeFav(this)"><i class="fa-solid fa-heart"></i></button>
+                    </div>
+                    <div class="fav-body">
+                        <div class="fav-price">$3,200 / mo</div>
+                        <div class="fav-beds">3 Beds &bull; 2 Baths &bull; 1,400 sq ft</div>
+                        <div class="fav-address"><i class="fa-solid fa-location-dot" style="color:var(--primary-green);margin-right:4px;"></i>789 Skyline Tower, Downtown, ST</div>
+                        <div class="fav-amenities"><span class="fav-amenity">W/D In-Unit</span><span class="fav-amenity">Concierge</span><span class="fav-amenity">EV Parking</span></div>
+                        <div class="fav-actions">
+                            <a href="pdp.html" class="fav-btn fav-btn-outline"><i class="fa-solid fa-eye"></i> View</a>
+                            <button class="fav-btn fav-btn-primary" onclick="alert('Demo: Opening contact form for 789 Skyline Tower')"><i class="fa-regular fa-envelope"></i> Contact</button>
+                        </div>
+                        <div class="fav-added-date"><i class="fa-regular fa-clock"></i> Saved Mar 4, 2024</div>
+                    </div>
+                </div>
+
+                <div class="fav-card" data-price="1200" data-added="2024-03-02">
+                    <div class="fav-img-wrap" style="background:#e8f5e9;display:flex;align-items:center;justify-content:center;">
+                        <i class="fa-solid fa-building" style="font-size:60px;color:#c8e6c9;"></i>
+                        <span class="fav-badge">Available</span>
+                        <button class="fav-remove-btn" title="Remove from favorites" onclick="removeFav(this)"><i class="fa-solid fa-heart"></i></button>
+                    </div>
+                    <div class="fav-body">
+                        <div class="fav-price">$1,200 / mo</div>
+                        <div class="fav-beds">1 Bed &bull; 1 Bath &bull; 620 sq ft</div>
+                        <div class="fav-address"><i class="fa-solid fa-location-dot" style="color:var(--primary-green);margin-right:4px;"></i>22 Maple Ave, University District, ST</div>
+                        <div class="fav-amenities"><span class="fav-amenity">Laundry On-Site</span><span class="fav-amenity">Near Transit</span></div>
+                        <div class="fav-actions">
+                            <a href="pdp.html" class="fav-btn fav-btn-outline"><i class="fa-solid fa-eye"></i> View</a>
+                            <button class="fav-btn fav-btn-primary" onclick="alert('Demo: Opening contact form for 22 Maple Ave')"><i class="fa-regular fa-envelope"></i> Contact</button>
+                        </div>
+                        <div class="fav-added-date"><i class="fa-regular fa-clock"></i> Saved Mar 2, 2024</div>
+                    </div>
+                </div>
+
+                <div class="fav-card" data-price="4100" data-added="2024-02-28">
+                    <div class="fav-img-wrap" style="background:#e3f2fd;display:flex;align-items:center;justify-content:center;">
+                        <i class="fa-solid fa-city" style="font-size:60px;color:#bbdefb;"></i>
+                        <span class="fav-badge">Available</span>
+                        <button class="fav-remove-btn" title="Remove from favorites" onclick="removeFav(this)"><i class="fa-solid fa-heart"></i></button>
+                    </div>
+                    <div class="fav-body">
+                        <div class="fav-price">$4,100 / mo</div>
+                        <div class="fav-beds">2 Beds &bull; 2 Baths &bull; 1,100 sq ft</div>
+                        <div class="fav-address"><i class="fa-solid fa-location-dot" style="color:var(--primary-green);margin-right:4px;"></i>900 Lakefront Dr, Westside, ST</div>
+                        <div class="fav-amenities"><span class="fav-amenity">Lake View</span><span class="fav-amenity">Doorman</span><span class="fav-amenity">W/D In-Unit</span></div>
+                        <div class="fav-actions">
+                            <a href="pdp.html" class="fav-btn fav-btn-outline"><i class="fa-solid fa-eye"></i> View</a>
+                            <button class="fav-btn fav-btn-primary" onclick="alert('Demo: Opening contact form for 900 Lakefront Dr')"><i class="fa-regular fa-envelope"></i> Contact</button>
+                        </div>
+                        <div class="fav-added-date"><i class="fa-regular fa-clock"></i> Saved Feb 28, 2024</div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+        <!-- Global Slide-out Menu -->
+    <div class="global-menu-overlay" id="globalMenuOverlay"></div>
+    <div class="global-side-menu" id="globalSideMenu">
+        <div class="menu-header">
+            <span style="font-size: 18px; font-weight: 700;">Site Directory</span>
+            <button class="btn-icon close-menu-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="menu-content">
+            <div class="menu-section-title">Public Pages</div>
+            <a href="index.html" class="menu-item"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="search-results.html" class="menu-item"><i class="fa-solid fa-magnifying-glass"></i> Search Results</a>
+            <a href="pdp.html" class="menu-item"><i class="fa-solid fa-building"></i> Property Detail (PDP)</a>
+            
+            <div class="menu-section-title">My Account</div>
+            <a href="saved-searches.html" class="menu-item"><i class="fa-solid fa-magnifying-glass-arrow-right"></i> Saved Searches</a>
+            <a href="favorites.html" class="menu-item"><i class="fa-regular fa-heart"></i> Favorites</a>
+            <a href="profile.html" class="menu-item"><i class="fa-regular fa-circle-user"></i> My Profile</a>
+
+            <div class="menu-section-title">Renter Tools</div>
+            <a href="#" class="menu-item"><i class="fa-solid fa-inbox"></i> Inbox</a>
+            <a href="rental-manager.html" class="menu-item"><i class="fa-solid fa-building-user"></i> Manage Rentals</a>
+            <a href="#" class="menu-item"><i class="fa-solid fa-language"></i> Language Selector</a>
+            <a href="#" class="menu-item"><i class="fa-regular fa-circle-question"></i> Help Center</a>
+
+            <div class="menu-section-title">Property Managers</div>
+            <a href="add-property.html" class="menu-item"><i class="fa-solid fa-plus"></i> Add Property</a>
+            
+            <div class="menu-section-title">Admin & Dashboards</div>
+            <a href="dashboard.html" class="menu-item"><i class="fa-solid fa-chart-line"></i> Owner Dashboard</a>
+            <a href="analytics.html" class="menu-item"><i class="fa-solid fa-chart-pie"></i> Platform Analytics</a>
+            <a href="financial.html" class="menu-item"><i class="fa-solid fa-vault"></i> Financial Hub</a>
+            <a href="leasing.html" class="menu-item"><i class="fa-solid fa-key"></i> Leasing & Tenants</a>
+            <a href="user-management.html" class="menu-item"><i class="fa-solid fa-users-gear"></i> User Management</a>
+            <a href="moderation.html" class="menu-item"><i class="fa-solid fa-shield-cat"></i> Content Moderation</a>
+            <a href="settings.html" class="menu-item"><i class="fa-solid fa-sliders"></i> System Settings</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+    function removeFav(btn) {
+        const card = btn.closest('.fav-card');
+        card.style.transition = 'opacity 0.3s,transform 0.3s';
+        card.style.opacity = '0'; card.style.transform = 'scale(0.93)';
+        setTimeout(() => {
+            card.remove();
+            const remaining = document.querySelectorAll('.fav-card').length;
+            document.getElementById('favCountLabel').textContent = `Showing ${remaining} listing${remaining!==1?'s':''}`;
+            document.getElementById('favCountBadge').textContent = `${remaining} saved`;
+            if (!remaining) {
+                document.getElementById('favGrid').innerHTML = `<div class="empty-state"><i class="fa-regular fa-heart"></i><h3>No favorites yet</h3><p>Click the â¤ï¸ icon on any listing to save it here.</p><a href="search-results.html" class="btn btn-primary" style="margin-top:16px;display:inline-block;">Browse Listings</a></div>`;
+            }
+        }, 300);
+    }
+    function sortFavorites(val) {
+        const grid = document.getElementById('favGrid');
+        const cards = [...grid.querySelectorAll('.fav-card')];
+        cards.sort((a, b) => {
+            if (val === 'price-asc') return +a.dataset.price - +b.dataset.price;
+            if (val === 'price-desc') return +b.dataset.price - +a.dataset.price;
+            return new Date(b.dataset.added) - new Date(a.dataset.added);
+        });
+        cards.forEach(c => grid.appendChild(c));
+    }
+    </script>
+</body>
+</html>
+

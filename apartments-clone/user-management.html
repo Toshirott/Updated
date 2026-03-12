@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="User Management - Admin Hub">
+    <title>User Management | Admin Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- Top Navigation Bar (Dashboard specific) -->
+    <header class="site-header dashboard-header">
+        <div class="header-container">
+            <div class="logo-section" style="display: flex; align-items: center; gap: 15px;">
+                <button class="btn-icon menu-toggle-btn" style="color: var(--text-dark); font-size: 20px;"><i class="fa-solid fa-bars"></i></button>
+                <a href="index.html" class="logo-link" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+                    <div class="logo-icon"><i class="fa-solid fa-house-chimney"></i></div>
+                    <span style="font-size: 20px;">Makikibahay</span>
+                </a>
+            </div>
+            
+            <div class="dashboard-user-nav">
+                <button class="btn-icon"><i class="fa-regular fa-bell"></i></button>
+                <button class="btn-icon"><i class="fa-solid fa-gear"></i></button>
+                <div class="user-profile">
+                    <div class="avatar" style="background-color: #6a1b9a;">AD</div>
+                    <span class="user-name">System Admin</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="dashboard-sidebar">
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link"><i class="fa-solid fa-chart-line"></i> Owner Dashboard</a>
+                <a href="rental-manager.html" class="sidebar-link"><i class="fa-solid fa-building-user"></i> Rental Manager</a>
+                <a href="properties-for-rent.html" class="sidebar-link"><i class="fa-solid fa-building"></i> Properties for Rent</a>
+                <a href="screen-applicants.html" class="sidebar-link"><i class="fa-solid fa-users-viewfinder"></i> Screen Applicants</a>
+                <a href="collect-rent-online.html" class="sidebar-link"><i class="fa-solid fa-money-check-dollar"></i> Collect Rent Online</a>
+                <a href="rental-manager-resources.html" class="sidebar-link"><i class="fa-solid fa-book"></i> Rental Manager Resources</a>
+                
+                <div style="margin: 15px 20px 5px; font-size: 12px; font-weight: 700; color: var(--gray-text); text-transform: uppercase;">My Account</div>
+                <a href="saved-searches.html" class="sidebar-link"><i class="fa-solid fa-magnifying-glass-arrow-right"></i> Saved Searches</a>
+                <a href="favorites.html" class="sidebar-link"><i class="fa-regular fa-heart"></i> Favorites</a>
+                <a href="profile.html" class="sidebar-link"><i class="fa-regular fa-circle-user"></i> My Profile</a>
+
+                <div style="margin: 15px 20px 5px; font-size: 12px; font-weight: 700; color: var(--gray-text); text-transform: uppercase;">Admin Tools</div>
+                <a href="analytics.html" class="sidebar-link"><i class="fa-solid fa-chart-pie"></i> Platform Analytics</a>
+                <a href="financial.html" class="sidebar-link"><i class="fa-solid fa-vault"></i> Financial Hub</a>
+                <a href="leasing.html" class="sidebar-link"><i class="fa-solid fa-key"></i> Leasing & Tenants</a>
+                <a href="user-management.html" class="sidebar-link active"><i class="fa-solid fa-users-gear"></i> User Management</a>
+                <a href="moderation.html" class="sidebar-link"><i class="fa-solid fa-shield-cat"></i> Content Moderation <span class="badge warning">12</span></a>
+                <a href="settings.html" class="sidebar-link"><i class="fa-solid fa-sliders"></i> System Settings</a>
+                <a href="#" class="sidebar-link"><i class="fa-solid fa-gavel"></i> Disputes <span class="badge warning">3</span></a>
+                <a href="#" class="sidebar-link"><i class="fa-solid fa-shield-halved"></i> Access Roles</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="add-property.html" class="btn-primary sidebar-btn"><i class="fa-solid fa-plus"></i> Add Property</a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="dashboard-main">
+            <div class="dashboard-header-text" style="display: flex; justify-content: space-between; align-items: flex-end;">
+                <div>
+                    <h1>User Management</h1>
+                    <p>Oversee all accounts, manage platform access, and handle disputes.</p>
+                </div>
+                <button class="btn-primary"><i class="fa-solid fa-user-plus"></i> Invite User</button>
+            </div>
+
+            <div class="admin-data-card">
+                <!-- User Type Tabs -->
+                <div class="config-tabs" style="display: flex; gap: 20px; border-bottom: 1px solid var(--gray-border); margin-bottom: 20px;">
+                    <button class="tab active" style="font-size: 15px;">Owner Accounts</button>
+                    <button class="tab" style="font-size: 15px;">Renter Accounts</button>
+                    <button class="tab" style="font-size: 15px;">Verification Queue <span class="badge warning" style="margin-left: 5px;">4</span></button>
+                </div>
+
+                <!-- Owner Accounts View (Active by default) -->
+                <div class="config-pane active-pane" id="owner-accounts-view">
+                    <!-- Table Controls Container -->
+                    <div class="table-controls">
+                        <div class="search-input-wrapper" style="width: 300px;">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" class="search-input" placeholder="Search property owners">
+                        </div>
+                        
+                        <div class="filter-controls">
+                            <select class="form-input" style="padding: 10px; min-width: 150px;">
+                                <option>All Statuses</option>
+                                <option>Active</option>
+                                <option>Suspended</option>
+                                <option>Pending Verification</option>
+                            </select>
+                            <button class="btn-outline"><i class="fa-solid fa-file-export"></i> Export</button>
+                        </div>
+                    </div>
+
+                    <!-- Data Table -->
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Owner</th>
+                                    <th>Active Listings</th>
+                                    <th>Avg Rating</th>
+                                    <th>Account Status</th>
+                                    <th class="text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Row 1 -->
+                                <tr>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="avatar-small">JD</div>
+                                            <div>
+                                                <div class="user-fullname">John Doe</div>
+                                                <div class="user-email">john@example.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span style="font-weight: 500;">4 Properties</span></td>
+                                    <td><i class="fa-solid fa-star" style="color: gold; font-size: 12px;"></i> 4.8 <span class="text-muted">(24)</span></td>
+                                    <td><span class="status-badge status-active">Verified Active</span></td>
+                                    <td class="text-right">
+                                        <div class="action-menu">
+                                            <button class="btn-icon-small" title="Manage Access"><i class="fa-solid fa-key"></i></button>
+                                            <button class="btn-icon-small" title="View Profile"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Row 2 -->
+                                <tr class="row-warning">
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="avatar-small" style="background-color: #ff9800;">MC</div>
+                                            <div>
+                                                <div class="user-fullname">Mike Chen Properties</div>
+                                                <div class="user-email">mike@invest.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span style="font-weight: 500;">12 Properties</span></td>
+                                    <td><i class="fa-solid fa-star" style="color: gold; font-size: 12px;"></i> 3.2 <span class="text-muted">(105)</span></td>
+                                    <td>
+                                        <div style="display: flex; gap: 5px; flex-direction: column; align-items: flex-start;">
+                                            <span class="status-badge status-active">Active</span>
+                                            <span class="status-badge status-dispute"><i class="fa-solid fa-flag"></i> Low Rating Alert</span>
+                                        </div>
+                                    </td>
+                                    <td class="text-right">
+                                        <div class="action-menu">
+                                            <button class="btn-contact btn-small" style="font-size: 12px; padding: 4px 8px;">Review Account</button>
+                                            <button class="btn-icon-small" title="Manage Access"><i class="fa-solid fa-key"></i></button>
+                                            <button class="btn-icon-small" title="View Profile"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Pagination for Owner View -->
+                <div class="pagination-footer">
+                    <span class="page-info">Showing 1 to 2 of 24 owners</span>
+                    <div class="page-controls">
+                        <button class="btn-outline" disabled>Previous</button>
+                        <button class="btn-outline active">1</button>
+                        <button class="btn-outline">2</button>
+                        <button class="btn-outline">Next</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Renter Accounts View (Hidden by default) -->
+            <div class="config-pane" style="display:none;" id="renter-accounts-view">
+                <div class="table-controls">
+                    <div class="search-input-wrapper" style="width: 300px;">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" class="search-input" placeholder="Search renter profiles">
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Renter Profile</th>
+                                <th>Background Check Status</th>
+                                <th>Current Lease</th>
+                                <th>Account Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <div class="avatar-small" style="background-color: var(--blue-primary);">SW</div>
+                                        <div>
+                                            <div class="user-fullname">Sarah Williams</div>
+                                            <div class="user-email">sarah.w@rentermail.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="status-badge status-active">Passed</span></td>
+                                <td>Apt 4B - Grand View</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                            </tr>
+                            <tr class="row-suspended">
+                                <td>
+                                    <div class="user-cell">
+                                        <div class="avatar-small" style="background-color: var(--warning-color);">TJ</div>
+                                        <div>
+                                            <div class="user-fullname">Tom Jenkins</div>
+                                            <div class="user-email">tom.j@email.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="status-badge status-pending">In Progress</span></td>
+                                <td class="text-muted">No active lease</td>
+                                <td><span class="status-badge status-suspended">Suspended</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Verification Queue View (Hidden by default) -->
+            <div class="config-pane" style="display:none;" id="verify-queue-view">
+                <h3 style="font-size: 16px; margin-bottom: 15px; color: var(--text-dark);">Pending Verifications (4)</h3>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Role Request</th>
+                                <th>Documents Uploaded</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="row-warning">
+                                <td>
+                                    <div class="user-fullname">Lisa Ray</div>
+                                    <div class="user-email" style="font-size:12px;">lisa.properties@mail.com</div>
+                                </td>
+                                <td>Property Owner</td>
+                                <td>ID, Deed Proof (2 files)</td>
+                                <td>
+                                    <div style="display: flex; gap: 10px;">
+                                        <button class="btn-primary btn-small">Approve</button>
+                                        <button class="btn-outline btn-small">Reject</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+        <!-- Global Slide-out Menu -->
+    <div class="global-menu-overlay" id="globalMenuOverlay"></div>
+    <div class="global-side-menu" id="globalSideMenu">
+        <div class="menu-header">
+            <span style="font-size: 18px; font-weight: 700;">Site Directory</span>
+            <button class="btn-icon close-menu-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="menu-content">
+            <div class="menu-section-title">Public Pages</div>
+            <a href="index.html" class="menu-item"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="search-results.html" class="menu-item"><i class="fa-solid fa-magnifying-glass"></i> Search Results</a>
+            <a href="pdp.html" class="menu-item"><i class="fa-solid fa-building"></i> Property Detail (PDP)</a>
+            
+            <div class="menu-section-title">My Account</div>
+            <a href="saved-searches.html" class="menu-item"><i class="fa-solid fa-magnifying-glass-arrow-right"></i> Saved Searches</a>
+            <a href="favorites.html" class="menu-item"><i class="fa-regular fa-heart"></i> Favorites</a>
+            <a href="profile.html" class="menu-item"><i class="fa-regular fa-circle-user"></i> My Profile</a>
+
+            <div class="menu-section-title">Renter Tools</div>
+            <a href="#" class="menu-item"><i class="fa-solid fa-inbox"></i> Inbox</a>
+            <a href="rental-manager.html" class="menu-item"><i class="fa-solid fa-building-user"></i> Manage Rentals</a>
+            <a href="#" class="menu-item"><i class="fa-solid fa-language"></i> Language Selector</a>
+            <a href="#" class="menu-item"><i class="fa-regular fa-circle-question"></i> Help Center</a>
+
+            <div class="menu-section-title">Property Managers</div>
+            <a href="add-property.html" class="menu-item"><i class="fa-solid fa-plus"></i> Add Property</a>
+            
+            <div class="menu-section-title">Admin & Dashboards</div>
+            <a href="dashboard.html" class="menu-item"><i class="fa-solid fa-chart-line"></i> Owner Dashboard</a>
+            <a href="analytics.html" class="menu-item"><i class="fa-solid fa-chart-pie"></i> Platform Analytics</a>
+            <a href="financial.html" class="menu-item"><i class="fa-solid fa-vault"></i> Financial Hub</a>
+            <a href="leasing.html" class="menu-item"><i class="fa-solid fa-key"></i> Leasing & Tenants</a>
+            <a href="user-management.html" class="menu-item"><i class="fa-solid fa-users-gear"></i> User Management</a>
+            <a href="moderation.html" class="menu-item"><i class="fa-solid fa-shield-cat"></i> Content Moderation</a>
+            <a href="settings.html" class="menu-item"><i class="fa-solid fa-sliders"></i> System Settings</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover Your New Home on Makikibahay Clone. Search over 1 million listings.">
+    <title>Makikibahay - Apartments and Homes for Rent</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-section" style="display: flex; align-items: center; gap: 15px;">
+                <button class="btn-icon menu-toggle-btn" style="color: var(--text-dark); font-size: 20px;"><i class="fa-solid fa-bars"></i></button>
+                <a href="index.html" class="logo-link" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+                    <div class="logo-icon"><i class="fa-solid fa-house-chimney"></i></div>
+                    <span>Makikibahay</span>
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="search-results.html">Browse</a>
+                <a href="saved-searches.html">Saved Searches</a>
+                <a href="favorites.html">Favorites</a>
+                <a href="profile.html">Profile</a>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn btn-outline" onclick="window.location.href='login.html'">Login / Sign Up</button>
+                <a href="add-property.html" class="btn btn-primary" style="background-color: transparent; color: var(--text-dark); border-color: var(--gray-border);">Add a Property</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Discover Your New Home</h1>
+                <div class="search-container">
+                    <div class="search-tabs">
+                        <div class="tab active">Rent</div>
+                        <div class="tab">Buy</div>
+                    </div>
+                    <div class="search-input-group">
+                        <div class="search-input-wrapper">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" class="search-input" placeholder="Enter City, Neighborhood, ZIP, or Address" aria-label="Search criteria">
+                        </div>
+                        <button class="btn-search">Search</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="explore-section">
+            <div class="section-header">
+                <h2 class="section-title">Featured Rentals</h2>
+            </div>
+            <div class="featured-grid">
+                <!-- Card 1 -->
+                <article class="listing-card">
+                    <img src="images/apt1.png" alt="Modern Apartment Living Room" class="listing-image">
+                    <div class="listing-content">
+                        <div class="listing-price">$2,450 - $4,100</div>
+                        <div class="listing-beds">1 - 3 Beds &bull; 1 - 2 Baths</div>
+                        <div class="listing-address">123 Horizon Blvd, Metro City, ST 12345</div>
+                        <div class="listing-actions">
+                            <button class="btn-block btn-contact">Email</button>
+                            <button class="btn-block">Call</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="listing-card">
+                    <img src="images/apt2.png" alt="Modern Kitchen" class="listing-image">
+                    <div class="listing-content">
+                        <div class="listing-price">$1,850 - $2,900</div>
+                        <div class="listing-beds">Studio - 2 Beds &bull; 1 Bath</div>
+                        <div class="listing-address">456 Elm Street Lofts, Uptown, ST 12345</div>
+                        <div class="listing-actions">
+                            <button class="btn-block btn-contact">Email</button>
+                            <button class="btn-block">Call</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="listing-card">
+                    <img src="images/apt3.png" alt="Luxury Bedroom" class="listing-image">
+                    <div class="listing-content">
+                        <div class="listing-price">$3,200 - $5,500</div>
+                        <div class="listing-beds">2 - 4 Beds &bull; 2 - 3 Baths</div>
+                        <div class="listing-address">789 Skyline Tower, Downtown, ST 12345</div>
+                        <div class="listing-actions">
+                            <button class="btn-block btn-contact">Email</button>
+                            <button class="btn-block">Call</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Legal Notices</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Avoid Scams</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+        <!-- Global Slide-out Menu -->
+    <div class="global-menu-overlay" id="globalMenuOverlay"></div>
+    <div class="global-side-menu" id="globalSideMenu">
+        <div class="menu-header">
+            <span style="font-size: 18px; font-weight: 700;">Site Directory</span>
+            <button class="btn-icon close-menu-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="menu-content">
+            <div class="menu-section-title">Public Pages</div>
+            <a href="index.html" class="menu-item"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="search-results.html" class="menu-item"><i class="fa-solid fa-magnifying-glass"></i> Search Results</a>
+            <a href="pdp.html" class="menu-item"><i class="fa-solid fa-building"></i> Property Detail (PDP)</a>
+            
+            <div class="menu-section-title">My Account</div>
+            <a href="saved-searches.html" class="menu-item"><i class="fa-solid fa-magnifying-glass-arrow-right"></i> Saved Searches</a>
+            <a href="favorites.html" class="menu-item"><i class="fa-regular fa-heart"></i> Favorites</a>
+            <a href="profile.html" class="menu-item"><i class="fa-regular fa-circle-user"></i> My Profile</a>
+
+            <div class="menu-section-title">Renter Tools</div>
+            <a href="#" class="menu-item"><i class="fa-solid fa-inbox"></i> Inbox</a>
+            <a href="rental-manager.html" class="menu-item"><i class="fa-solid fa-building-user"></i> Manage Rentals</a>
+            <a href="#" class="menu-item"><i class="fa-solid fa-language"></i> Language Selector</a>
+            <a href="#" class="menu-item"><i class="fa-regular fa-circle-question"></i> Help Center</a>
+
+            <div class="menu-section-title">Property Managers</div>
+            <a href="add-property.html" class="menu-item"><i class="fa-solid fa-plus"></i> Add Property</a>
+            
+            <div class="menu-section-title">Admin & Dashboards</div>
+            <a href="dashboard.html" class="menu-item"><i class="fa-solid fa-chart-line"></i> Owner Dashboard</a>
+            <a href="analytics.html" class="menu-item"><i class="fa-solid fa-chart-pie"></i> Platform Analytics</a>
+            <a href="financial.html" class="menu-item"><i class="fa-solid fa-vault"></i> Financial Hub</a>
+            <a href="leasing.html" class="menu-item"><i class="fa-solid fa-key"></i> Leasing & Tenants</a>
+            <a href="user-management.html" class="menu-item"><i class="fa-solid fa-users-gear"></i> User Management</a>
+            <a href="moderation.html" class="menu-item"><i class="fa-solid fa-shield-cat"></i> Content Moderation</a>
+            <a href="settings.html" class="menu-item"><i class="fa-solid fa-sliders"></i> System Settings</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
